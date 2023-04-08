@@ -1,1 +1,5 @@
-# landing_detector-team_5
+# Group Number #
+Team 5
+## Members
+
+## How to run
