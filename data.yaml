@@ -1,0 +1,7 @@
+path: C:\Users\mesto\Documents\Projects\landing_detector-team_5\data_train
+train: images
+val: images
+
+# Classes
+names:
+  0: landing_site

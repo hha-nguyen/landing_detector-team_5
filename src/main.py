@@ -8,7 +8,7 @@ import sys
 import cv2
 import numpy as np
 
-from landing_detector import LandingDectector
+from landing_detector import LandingDetector
 
 def read_label(label_file):
     with open(label_file, "r") as f:
@@ -39,11 +39,14 @@ def calc_precision(iou, t):
 
 if __name__ == "__main__":
 
-    input_folder = sys.argv[1]
-    label_folder = sys.argv[2]
+    # input_folder = sys.argv[1]
+    # label_folder = sys.argv[2]
+    
+    input_folder = r'C:\Users\mesto\Documents\Projects\landing_detector-team_5\data_train\images'
+    label_folder = r'C:\Users\mesto\Documents\Projects\landing_detector-team_5\data_train\labels'
 
     start_time = time.time()
-    detector = LandingDectector()
+    detector = LandingDetector()
     init_time = time.time() - start_time
     print("Run time in: %.2f s" % init_time)
 
@@ -59,7 +62,7 @@ if __name__ == "__main__":
 
         total += 1
         img = cv2.imread(os.path.join(input_folder, filename))
-        target = read_label(os.path.join(label_folder, filename[:-4] + "txt"))
+        target = read_label(os.path.join(label_folder, filename[:-4] + ".txt"))
         print(img.shape)
 
         output_x1, output_y1, output_x2, output_y2 = detector.detect(img)

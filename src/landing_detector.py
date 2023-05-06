@@ -1,3 +1,5 @@
+from ultralytics import YOLO
+
 class LandingDetector:
 
     def __init__(self):
@@ -7,5 +9,7 @@ class LandingDetector:
         self.name = 'LandingDetector'
 
     def detect(self, img):
-
-        return 100, 100, 150, 150
+        modal = YOLO("")
+        
+        results = modal.train(data="config.yaml", epochs=1)
+        return results
